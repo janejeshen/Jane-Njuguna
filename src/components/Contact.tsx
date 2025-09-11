@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 
 const Contact = () => {
@@ -44,90 +41,45 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="p-8 bg-white/10 backdrop-blur-md border-white/20">
-            <h3 className="text-2xl font-bold mb-6 text-white">Send Message</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <Input 
-                    placeholder="Your Name" 
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-300"
-                  />
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Contact Info Cards */}
+            {contactInfo.map((item, index) => (
+              <Card key={index} className="p-6 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/30 transition-colors duration-300">
+                    <item.icon size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.label}</h3>
+                  <a
+                    href={item.href}
+                    className="text-gray-300 hover:text-primary transition-colors duration-300"
+                  >
+                    {item.value}
+                  </a>
                 </div>
-                <div>
-                  <Input 
-                    type="email" 
-                    placeholder="Your Email" 
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-300"
-                  />
-                </div>
-              </div>
-              <div>
-                <Input 
-                  placeholder="Subject" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-300"
-                />
-              </div>
-              <div>
-                <Textarea 
-                  placeholder="Your Message" 
-                  rows={5}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-300 resize-none"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-primary hover:shadow-burnt transition-all duration-300"
-              >
-                Send Message
-              </Button>
-            </form>
-          </Card>
+              </Card>
+            ))}
+          </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, creative projects, or just having a chat about technology and design.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
+          {/* Social Links */}
+          <div className="text-center mt-12">
+            <h3 className="text-2xl font-bold mb-6 text-white">Connect With Me</h3>
+            <div className="flex justify-center space-x-6">
+              {socialLinks.map((social, index) => (
                 <a
                   key={index}
-                  href={item.href}
-                  className="flex items-center space-x-4 text-gray-300 hover:text-primary transition-colors duration-300 group"
+                  href={social.href}
+                  className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center text-gray-300 hover:text-primary hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                  aria-label={social.label}
                 >
-                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <item.icon size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">{item.label}</p>
-                    <p className="text-white font-medium">{item.value}</p>
-                  </div>
+                  <social.icon size={24} />
                 </a>
               ))}
             </div>
-
-            <div className="pt-8">
-              <h4 className="text-lg font-semibold mb-4 text-white">Follow Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-primary hover:bg-primary/20 transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={20} />
-                  </a>
-                ))}
-              </div>
-            </div>
+            <p className="text-gray-300 mt-6 max-w-2xl mx-auto">
+              I'm always excited to connect with fellow developers, potential collaborators, and anyone passionate about technology and innovation.
+            </p>
           </div>
         </div>
       </div>
