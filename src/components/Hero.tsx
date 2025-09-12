@@ -154,7 +154,7 @@ const Hero = () => {
           <p className="mt-6 max-w-2xl text-left text-lg leading-relaxed text-gray-300 md:text-xl">
             I help teams make smarter decisions by turning raw data into clear stories and
             dependable products. I uncover what matters, build models that forecast and explain,
-            and ship solutions that work in the real world—measured by impact, not buzzwords.
+            and ship solutions that work in the real world measured by impact, not buzzwords.
             I care about clarity, reliability, and results.
           </p>
 
