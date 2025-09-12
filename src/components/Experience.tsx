@@ -7,11 +7,11 @@ const Experience = () => {
   title: "Data Analyst Intern",
   company: "Kurasa Africa",
   period: "June 2025 – Present",
-  description: `• Clean and validate assessment datasets across schools—deduping, fixing missing/inconsistent values, and standardizing schemas to improve data quality.
-• Write SQL/Python pipelines to aggregate student, class, and school-level metrics (scores, growth, attendance) for weekly and monthly reporting.
-• Build interactive dashboards to visualize performance trends, cohorts, and risk flags, enabling data-driven decisions for academic and operations teams.
-• Perform exploratory analysis to surface drivers of performance and translate findings into clear recommendations for stakeholders.
-• Document data sources, data dictionaries, naming conventions, and analysis workflows to improve team collaboration and onboarding.
+  description: `• Clean and validate assessment datasets across schools—deduping, fixing missing/inconsistent values, and standardizing schemas to improve data quality.\n
+• Write SQL/Python pipelines to aggregate student, class, and school-level metrics (scores, growth, attendance) for weekly and monthly reporting.\n
+• Build interactive dashboards to visualize performance trends, cohorts, and risk flags, enabling data-driven decisions for academic and operations teams.\n
+• Perform exploratory analysis to surface drivers of performance and translate findings into clear recommendations for stakeholders.\n
+• Document data sources, data dictionaries, naming conventions, and analysis workflows to improve team collaboration and onboarding.\n
 • Automate recurring reports and checks, reducing manual effort and turnaround time.`,
   technologies: [
     "Python (Pandas, NumPy, Jupyter)",
