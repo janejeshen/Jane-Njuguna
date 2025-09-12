@@ -87,7 +87,7 @@ const Experience = () => {
 • Created clear visualizations and dashboards to communicate insights to non-technical stakeholders and support data-driven decisions.
 • Practiced reproducible workflows (clean notebooks, version control), experiment tracking, and responsible data/ML ethics.`
 
-    }
+    },
     {
       degree: "BSc in Community Health and Development",
       school: "Catholic University Of Eastern Africa",
