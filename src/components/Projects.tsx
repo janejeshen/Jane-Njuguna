@@ -208,7 +208,7 @@ const Projects = () => {
                     {project.insights && project.insights.length > 0 && (
                       <div>
                         <p className="font-semibold" style={{ color: BURNT }}>
-                          New: simple insights & how they help
+                          Insights
                         </p>
                         <ul className="list-disc pl-5 text-sm text-muted-foreground">
                           {project.insights.map((tip, i) => (
