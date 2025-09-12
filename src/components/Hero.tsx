@@ -1,7 +1,75 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail, Download } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import profilePhoto from "@/assets/profile-photo.jpg";
+
+/* --------- Tiny typewriter utilities (no libs) --------- */
+function useTypewriter(
+  text: string,
+  { speed = 90, startDelay = 400 }: { speed?: number; startDelay?: number } = {}
+) {
+  const [out, setOut] = useState("");
+  useEffect(() => {
+    let i = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    const starter = setTimeout(function step() {
+      setOut(text.slice(0, i + 1));
+      i += 1;
+      if (i < text.length) timer = setTimeout(step, speed);
+    }, startDelay);
+    return () => {
+      clearTimeout(starter);
+      clearTimeout(timer);
+    };
+  }, [text, speed, startDelay]);
+  return out;
+}
+
+function useTypewriterLoop(
+  strings: string[],
+  {
+    typing = 70,
+    deleting = 40,
+    pause = 1000,
+  }: { typing?: number; deleting?: number; pause?: number } = {}
+) {
+  const [idx, setIdx] = useState(0);
+  const [txt, setTxt] = useState("");
+  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
+
+  useEffect(() => {
+    if (!strings.length) return;
+    const current = strings[idx % strings.length];
+    let t: ReturnType<typeof setTimeout>;
+
+    if (phase === "typing") {
+      if (txt.length < current.length) {
+        t = setTimeout(() => setTxt(current.slice(0, txt.length + 1)), typing);
+      } else {
+        t = setTimeout(() => setPhase("pausing"), pause);
+      }
+    } else if (phase === "deleting") {
+      if (txt.length > 0) {
+        t = setTimeout(() => setTxt(current.slice(0, txt.length - 1)), deleting);
+      } else {
+        setIdx((n) => (n + 1) % strings.length);
+        setPhase("typing");
+      }
+    } else {
+      // pausing
+      t = setTimeout(() => setPhase("deleting"), pause / 2);
+    }
+    return () => clearTimeout(t);
+  }, [txt, phase, strings, idx, typing, deleting, pause]);
+
+  return txt;
+}
+
+const Caret = () => <span className="ml-1 animate-pulse">|</span>;
+/* -------------------------------------------------------- */
+
+type IconComponent = React.ComponentType<{ size?: number | string; className?: string }>;
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -10,14 +78,13 @@ const Hero = () => {
   };
 
   const downloadResume = (type: string) => {
-    // Create download link for resume PDFs
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = `/resumes/Jane_Njuguna_${type}_Resume.pdf`;
     link.download = `Jane_Njuguna_${type}_Resume.pdf`;
     link.click();
   };
 
-  const socials = [
+  const socials: { Icon: IconComponent; href: string; label: string }[] = [
     { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },
     { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" },
     { Icon: Mail, href: "mailto:janenjuguna550@gmail.com", label: "Email" },
@@ -28,6 +95,13 @@ const Hero = () => {
     { type: "Data_Scientist", label: "Data Scientist" },
     { type: "ML_Engineer", label: "ML Engineer" },
   ];
+
+  // ✨ Typewriter texts
+  const typedName = useTypewriter("Jane Njuguna", { speed: 90, startDelay: 500 });
+  const typedRole = useTypewriterLoop(
+    ["Data Analyst", "Data Scientist", "Machine Learning Engineer"],
+    { typing: 70, deleting: 40, pause: 1100 }
+  );
 
   return (
     <section
@@ -43,7 +117,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Photo */}
-          <div className="mb-8 animate-fade-in-up">
+          <div className="mb-4 mt-16 animate-fade-in-up">
             <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 relative">
               <img
                 src={profilePhoto}
@@ -55,21 +129,32 @@ const Hero = () => {
           </div>
 
           <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-10 leading-tight">
               <span className="text-white">Hello, I'm</span>
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Jane Njuguna
+              {/* Name typewriter */}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent inline-flex">
+                {typedName}
+                <Caret />
               </span>
             </h1>
 
-            <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light">
-              Data Analyst • Data Scientist • Machine Learning Engineer
+            {/* Roles typewriter (rotating) */}
+            <h2
+              className="text-2xl md:text-3xl text-gray-300 mb-6 font-light min-h-[2.5rem]"
+              aria-live="polite"
+            >
+              {typedRole}
+              <Caret />
             </h2>
 
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              I help teams make smarter decisions by turning raw data into clear stories and dependable products. I uncover what matters, build models that forecast and explain, and ship solutions that work in the real world measured by impact, not buzzwords. I care about clarity, reliability, and results.
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed text-left">
+              I help teams make smarter decisions by turning raw data into clear stories and dependable
+              products. I uncover what matters, build models that forecast and explain, and ship solutions
+              that work in the real world—measured by impact, not buzzwords. I care about clarity, reliability,
+              and results.
             </p>
+
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">

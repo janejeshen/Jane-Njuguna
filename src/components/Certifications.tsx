@@ -8,33 +8,31 @@ const Certifications = () => {
       title: "Data Science and Analytics Certificate",
       issuer: "Moringa School",
       date: "February 2023",
-      credentialId: "MSC-DSA-2023-001",
+      // credentialId: "MSC-DSA-2023-001",
       description: "Intensive, project-based training in Data Science & Analytics covering Python, SQL, statistics/probability, and machine learning fundamentals.",
-      verifyUrl: "#",
+      verifyUrl: "https://drive.google.com/file/d/1ZPlnxL2nlyQqn4j-0-yYygKLNQNMpfQg/view?usp=sharing",
       type: "certification"
+    },
+    {
+
+      "title": "Data Visualisation: Empowering Business with Effective Insights Job Simulation",
+      "issuer": "Tata Consultancy Services (via Forage)",
+      "date": "May 2025",
+      "description": "Completed a virtual job simulation focused on business data visualization. Developed executive-ready visuals, framed strategic questions for senior leadership, and presented insights to support effective decision-making.",
+      "verifyUrl": "https://www.theforage.com/simulations/tata/data-visualisation-empowering-business",
+      "type": "certification"
+
     }
+
+
   ];
 
   const achievements = [
     {
-      title: "Top Performer in Data Science Bootcamp",
-      issuer: "Moringa School",
-      date: "2023",
-      description: "Recognized for outstanding performance and project quality during the 8-month intensive data science program.",
-      type: "achievement"
-    },
-    {
-      title: "Best Data Visualization Project",
-      issuer: "Zetech University",
-      date: "2024",
-      description: "Awarded for creating the most insightful and visually compelling dashboard in the data analytics course.",
-      type: "achievement"
-    },
-    {
-      title: "Academic Excellence Award",
-      issuer: "Catholic University Of Eastern Africa",
-      date: "2022",
-      description: "Maintained high academic standards throughout the BSc in Community Health and Development program.",
+      title: "Top Female participant in Côte d’Ivoire Byte-Sized Agriculture Challenge",
+      issuer: "Zindi Afria",
+      date: "July 18, 2025",
+      description: "Awarded recognition as the Top Female Participant in the Côte d’Ivoire Byte-Sized Agriculture Challenge organized by Zindi Africa, for demonstrating exceptional data science skills, innovative problem-solving, and delivering high-quality project outcomes during the 8-month competition.",
       type: "achievement"
     }
   ];
