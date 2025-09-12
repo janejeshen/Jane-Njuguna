@@ -1,21 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const socials = [
+    { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },
+    { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" },
+    { Icon: Mail, href: "mailto:hello@yourname.com", label: "Email" }, // update email
+  ];
+
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-hero text-white relative overflow-hidden">
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center bg-gradient-hero text-white relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-accent rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -28,7 +36,7 @@ const Hero = () => {
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover border-4 border-primary shadow-burnt"
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20" />
             </div>
           </div>
 
@@ -40,26 +48,26 @@ const Hero = () => {
                 Your Name
               </span>
             </h1>
-            
+
             <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light">
               Creative Developer & Designer
             </h2>
-            
+
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              I craft beautiful digital experiences that combine functionality with stunning design. 
+              I craft beautiful digital experiences that combine functionality with stunning design.
               Passionate about creating solutions that make a difference.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button 
+            <Button
               onClick={() => scrollToSection("projects")}
               className="bg-gradient-primary hover:shadow-burnt transition-all duration-300 text-lg px-8 py-3"
             >
               View My Work
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => scrollToSection("contact")}
               className="border-white text-white hover:bg-white hover:text-deep-black transition-all duration-300 text-lg px-8 py-3"
             >
@@ -68,16 +76,15 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center justify-center space-x-6 mb-12">
-            {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Mail, href: "#", label: "Email" }
-            ].map(({ icon: Icon, href, label }) => (
+            {socials.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-gray-400 hover:text-primary transition-colors duration-300 p-2"
                 aria-label={label}
+                title={label}
               >
                 <Icon size={24} />
               </a>

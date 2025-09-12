@@ -2,24 +2,57 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      skills: ["React", "Vue.js", "TypeScript", "Tailwind CSS", "Next.js", "Vite"]
-    },
-    {
-      title: "Backend Development", 
-      skills: ["Node.js", "Python", "Express", "FastAPI", "PostgreSQL", "MongoDB"]
-    },
-    {
-      title: "Tools & Technologies",
-      skills: ["Git", "Docker", "AWS", "Figma", "Webpack", "Jest"]
-    },
-    {
-      title: "Soft Skills",
-      skills: ["Problem Solving", "Team Leadership", "Communication", "Project Management", "Mentoring", "Agile"]
-    }
-  ];
+  const skillCategories =[
+  {
+    title: "Data Analyst",
+    skills: [
+      "Python", "SQL",
+      "Pandas", "NumPy", "Statsmodels",
+      "Data Cleaning", "Exploratory Data Analysis (EDA)", "Descriptive Statistics",
+      "A/B Testing", "Trend Analysis", "KPI Reporting", "Dashboard Design",
+      "Power BI", "Tableau", "Microsoft Excel",
+      "Matplotlib", "Seaborn"
+    ]
+  },
+  {
+    title: "Data Scientist",
+    skills: [
+      "Python", "SQL", "C",
+      "Pandas", "NumPy", "scikit-learn", "Statsmodels",
+      "TensorFlow", "PyTorch", "H2O", "AutoGluon",
+      "Predictive Modeling", "Classification Modeling", "Time Series Analysis",
+      "Natural Language Processing (NLP)", "Deep Learning", "Statistics", "Data Analysis",
+      "Matplotlib", "Seaborn"
+    ]
+  },
+  {
+    title: "Machine Learning Engineer",
+    skills: [
+      "Python", "C",
+      "TensorFlow", "PyTorch", "H2O", "AutoGluon",
+      "scikit-learn", "Pandas", "NumPy",
+      "Model Training & Evaluation", "Model Optimization",
+      "AWS", "Jupyter Notebook", "Visual Studio Code"
+    ]
+  },
+  {
+    title: "Tools & Technologies",
+    skills: [
+      "Git", "Jira", "Anaconda", "Google Colab",
+      "Jupyter Notebook", "Visual Studio Code", "AWS",
+      "Power BI", "Tableau", "Microsoft Excel", "Microsoft Office Suite"
+    ]
+  },
+  {
+    title: "Soft Skills",
+    skills: [
+      "Problem Solving", "Critical Thinking", "Time Management",
+      "Effective Communication", "Teamwork", "Presentation Skills",
+      "Attention to Detail", "Business Acumen"
+    ]
+  }
+]
+;
 
   return (
     <section id="skills" className="py-20 bg-warm-gray">

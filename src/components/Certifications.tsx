@@ -5,35 +5,11 @@ import { Award, Calendar, ExternalLink } from "lucide-react";
 const Certifications = () => {
   const certifications = [
     {
-      title: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
+      title: "Data Science and Analytics",
+      issuer: "Moringa School",
       date: "2023",
       credentialId: "AWS-CSA-2023-001",
       description: "Validates expertise in designing distributed systems on AWS platform with security and scalability best practices.",
-      verifyUrl: "#"
-    },
-    {
-      title: "Google Cloud Professional Developer", 
-      issuer: "Google Cloud",
-      date: "2023",
-      credentialId: "GCP-PD-2023-002",
-      description: "Demonstrates proficiency in developing applications and services on Google Cloud Platform using modern development practices.",
-      verifyUrl: "#"
-    },
-    {
-      title: "React Developer Certification",
-      issuer: "Meta (Facebook)",
-      date: "2022",
-      credentialId: "META-REACT-2022-003",
-      description: "Advanced certification covering React ecosystem, state management, performance optimization, and modern development patterns.",
-      verifyUrl: "#"
-    },
-    {
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2022", 
-      credentialId: "CKA-2022-004",
-      description: "Validates skills in deploying, managing, and troubleshooting Kubernetes clusters in production environments.",
       verifyUrl: "#"
     }
   ];
