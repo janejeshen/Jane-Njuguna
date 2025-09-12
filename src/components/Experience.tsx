@@ -121,7 +121,7 @@ const Experience = () => {
                     </Badge>
                   </div>
                   <p className="text-primary font-medium mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
+                  <div className="text-muted-foreground mb-4 whitespace-pre-line">{exp.description}</div>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
@@ -147,7 +147,7 @@ const Experience = () => {
                     </Badge>
                   </div>
                   <p className="text-primary font-medium mb-3">{edu.school}</p>
-                  <p className="text-muted-foreground">{edu.description}</p>
+                  <div className="text-muted-foreground whitespace-pre-line">{edu.description}</div>
                 </Card>
               ))}
             </div>
