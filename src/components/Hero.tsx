@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Mail, Download } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
@@ -9,10 +9,24 @@ const Hero = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const downloadResume = (type: string) => {
+    // Create download link for resume PDFs
+    const link = document.createElement('a');
+    link.href = `/resumes/Jane_Njuguna_${type}_Resume.pdf`;
+    link.download = `Jane_Njuguna_${type}_Resume.pdf`;
+    link.click();
+  };
+
   const socials = [
     { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },
     { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" },
     { Icon: Mail, href: "mailto:janenjuguna550@gmail.com", label: "Email" },
+  ];
+
+  const resumeTypes = [
+    { type: "Data_Analyst", label: "Data Analyst" },
+    { type: "Data_Scientist", label: "Data Scientist" },
+    { type: "ML_Engineer", label: "ML Engineer" },
   ];
 
   return (
@@ -92,11 +106,30 @@ const Hero = () => {
 
           <button
             onClick={() => scrollToSection("projects")}
-            className="animate-bounce text-gray-400 hover:text-primary transition-colors duration-300"
+            className="animate-bounce text-gray-400 hover:text-primary transition-colors duration-300 mb-12"
             aria-label="Scroll down"
           >
             <ArrowDown size={32} />
           </button>
+
+          {/* Resume Download Section */}
+          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+            <h3 className="text-2xl font-bold mb-6 text-white">Download Resume</h3>
+            <p className="text-gray-300 mb-6">Get my specialized resume for different roles</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {resumeTypes.map(({ type, label }) => (
+                <Button
+                  key={type}
+                  onClick={() => downloadResume(type)}
+                  variant="outline"
+                  className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 flex items-center gap-2"
+                >
+                  <Download size={18} />
+                  {label}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
