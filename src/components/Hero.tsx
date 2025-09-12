@@ -28,11 +28,7 @@ function useTypewriter(
 
 function useTypewriterLoop(
   strings: string[],
-  {
-    typing = 70,
-    deleting = 40,
-    pause = 1000,
-  }: { typing?: number; deleting?: number; pause?: number } = {}
+  { typing = 70, deleting = 40, pause = 1000 }: { typing?: number; deleting?: number; pause?: number } = {}
 ) {
   const [idx, setIdx] = useState(0);
   const [txt, setTxt] = useState("");
@@ -57,7 +53,6 @@ function useTypewriterLoop(
         setPhase("typing");
       }
     } else {
-      // pausing
       t = setTimeout(() => setPhase("deleting"), pause / 2);
     }
     return () => clearTimeout(t);
@@ -70,6 +65,23 @@ const Caret = () => <span className="ml-1 animate-pulse">|</span>;
 /* -------------------------------------------------------- */
 
 type IconComponent = React.ComponentType<{ size?: number | string; className?: string }>;
+type ResumeKey = "Data_Analyst" | "Data_Scientist" | "ML_Engineer";
+
+/** Direct PDF export links from your Google Docs (must be viewable by "Anyone with the link") */
+const RESUMES: Record<ResumeKey, { url: string; filename: string }> = {
+  Data_Analyst: {
+    url: "https://docs.google.com/document/d/1kc40VEu2Nk5xszlw4j8rRrRl1ibJbZwLq-ApFJd1L3k/export?format=pdf",
+    filename: "Jane_Njuguna_Data_Analyst_Resume.pdf",
+  },
+  ML_Engineer: {
+    url: "https://docs.google.com/document/d/1NfRJvdTRjCCejxlN-JpKU3gRZUtmu7Mx5V4yKJeuDVE/export?format=pdf",
+    filename: "Jane_Njuguna_ML_Engineer_Resume.pdf",
+  },
+  Data_Scientist: {
+    url: "https://docs.google.com/document/d/19peRPoPLETgl1GQX-b1W6h5dBDXlifZDQqSYFOC70dw/export?format=pdf",
+    filename: "Jane_Njuguna_Data_Scientist_Resume.pdf",
+  },
+};
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -77,11 +89,20 @@ const Hero = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const downloadResume = (type: string) => {
-    const link = document.createElement("a");
-    link.href = `/resumes/Jane_Njuguna_${type}_Resume.pdf`;
-    link.download = `Jane_Njuguna_${type}_Resume.pdf`;
-    link.click();
+  const downloadResume = (type: ResumeKey) => {
+    const item = RESUMES[type];
+    if (!item) return;
+
+    // Most browsers will download automatically due to Google setting Content-Disposition.
+    // We also set download+target as a hint; if ignored, it still opens and downloads.
+    const a = document.createElement("a");
+    a.href = item.url;
+    a.setAttribute("download", item.filename);
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener");
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   const socials: { Icon: IconComponent; href: string; label: string }[] = [
@@ -90,7 +111,7 @@ const Hero = () => {
     { Icon: Mail, href: "mailto:janenjuguna550@gmail.com", label: "Email" },
   ];
 
-  const resumeTypes = [
+  const resumeTypes: { type: ResumeKey; label: string }[] = [
     { type: "Data_Analyst", label: "Data Analyst" },
     { type: "Data_Scientist", label: "Data Scientist" },
     { type: "ML_Engineer", label: "ML Engineer" },
@@ -104,10 +125,7 @@ const Hero = () => {
   );
 
   return (
-    <section
-      id="about"
-      className="min-h-screen flex items-center justify-center bg-gradient-hero text-white relative overflow-hidden"
-    >
+    <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-hero text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse" />
@@ -119,11 +137,7 @@ const Hero = () => {
           {/* Profile Photo */}
           <div className="mb-4 mt-16 animate-fade-in-up">
             <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 relative">
-              <img
-                src={profilePhoto}
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover border-4 border-primary shadow-burnt"
-              />
+              <img src={profilePhoto} alt="Profile" className="w-full h-full rounded-full object-cover border-4 border-primary shadow-burnt" />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20" />
             </div>
           </div>
@@ -132,7 +146,6 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-10 leading-tight">
               <span className="text-white">Hello, I'm</span>
               <br />
-              {/* Name typewriter */}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent inline-flex">
                 {typedName}
                 <Caret />
@@ -140,10 +153,7 @@ const Hero = () => {
             </h1>
 
             {/* Roles typewriter (rotating) */}
-            <h2
-              className="text-2xl md:text-3xl text-gray-300 mb-6 font-light min-h-[2.5rem]"
-              aria-live="polite"
-            >
+            <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light min-h-[2.5rem]" aria-live="polite">
               {typedRole}
               <Caret />
             </h2>
@@ -154,14 +164,10 @@ const Hero = () => {
               that work in the real world—measured by impact, not buzzwords. I care about clarity, reliability,
               and results.
             </p>
-
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button
-              onClick={() => scrollToSection("projects")}
-              className="bg-gradient-primary hover:shadow-burnt transition-all duration-300 text-lg px-8 py-3"
-            >
+            <Button onClick={() => scrollToSection("projects")} className="bg-gradient-primary hover:shadow-burnt transition-all duration-300 text-lg px-8 py-3">
               View My Work
             </Button>
             <Button
@@ -189,11 +195,7 @@ const Hero = () => {
             ))}
           </div>
 
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="animate-bounce text-gray-400 hover:text-primary transition-colors duration-300 mb-12"
-            aria-label="Scroll down"
-          >
+          <button onClick={() => scrollToSection("projects")} className="animate-bounce text-gray-400 hover:text-primary transition-colors duration-300 mb-12" aria-label="Scroll down">
             <ArrowDown size={32} />
           </button>
 
