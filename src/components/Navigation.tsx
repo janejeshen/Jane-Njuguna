@@ -30,7 +30,9 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className={`text-xl font-bold bg-gradient-primary bg-clip-text transition-all duration-300 ${
+            isScrolled ? "text-transparent" : "text-white"
+          }`}>
             Portfolio
           </div>
 
@@ -39,7 +41,11 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-foreground hover:text-primary transition-colors duration-300 capitalize"
+                className={`transition-colors duration-300 capitalize ${
+                  isScrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
               >
                 {item}
               </button>
