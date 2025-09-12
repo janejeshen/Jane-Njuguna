@@ -4,7 +4,7 @@ import { ArrowDown, Mail, Download } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
-/* --------- Tiny typewriter utilities (no libs) --------- */
+/* ------------------ Tiny typewriter utilities (no libs) ------------------ */
 function useTypewriter(
   text: string,
   { speed = 90, startDelay = 400 }: { speed?: number; startDelay?: number } = {}
@@ -61,8 +61,8 @@ function useTypewriterLoop(
   return txt;
 }
 
-const Caret = () => <span className="ml-1 animate-pulse">|</span>;
-/* -------------------------------------------------------- */
+const Caret = () => <span className="ml-1 inline-block w-2 animate-pulse">|</span>;
+/* ------------------------------------------------------------------------- */
 
 type IconComponent = React.ComponentType<{ size?: number | string; className?: string }>;
 type ResumeKey = "Data_Analyst" | "Data_Scientist" | "ML_Engineer";
@@ -92,9 +92,6 @@ const Hero = () => {
   const downloadResume = (type: ResumeKey) => {
     const item = RESUMES[type];
     if (!item) return;
-
-    // Most browsers will download automatically due to Google setting Content-Disposition.
-    // We also set download+target as a hint; if ignored, it still opens and downloads.
     const a = document.createElement("a");
     a.href = item.url;
     a.setAttribute("download", item.filename);
@@ -125,95 +122,126 @@ const Hero = () => {
   );
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-hero text-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-accent rounded-full blur-3xl animate-pulse delay-1000" />
+    <section
+      id="about"
+      className="relative overflow-hidden bg-gradient-hero text-white"
+    >
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute inset-0 opacity-10">
+        <div className="absolute -top-16 -left-16 h-64 w-64 rounded-full bg-primary blur-3xl" />
+        <div className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Profile Photo */}
-          <div className="mb-4 mt-16 animate-fade-in-up">
-            <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 relative">
-              <img src={profilePhoto} alt="Profile" className="w-full h-full rounded-full object-cover border-4 border-primary shadow-burnt" />
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20" />
-            </div>
-          </div>
+      <div className="container mx-auto grid min-h-[92vh] place-items-center px-4 py-20 lg:grid-cols-2 lg:gap-12">
+        {/* LEFT: Text + CTAs */}
+        <div className="relative z-10 w-full">
+          <p className="mb-3 text-sm uppercase tracking-[0.2em] text-white/70">
+            Hello, I&apos;m
+          </p>
+          <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-5xl font-extrabold leading-[1.1] text-transparent md:text-6xl xl:text-7xl">
+            {typedName}
+            <Caret />
+          </h1>
 
-          <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-10 leading-tight">
-              <span className="text-white">Hello, I'm</span>
-              <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent inline-flex">
-                {typedName}
-                <Caret />
-              </span>
-            </h1>
+          <h2
+            className="mt-4 text-2xl font-light text-white/80 md:text-3xl"
+            aria-live="polite"
+          >
+            {typedRole}
+            <Caret />
+          </h2>
 
-            {/* Roles typewriter (rotating) */}
-            <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light min-h-[2.5rem]" aria-live="polite">
-              {typedRole}
-              <Caret />
-            </h2>
+          <p className="mt-6 max-w-2xl text-left text-lg leading-relaxed text-gray-300 md:text-xl">
+            I help teams make smarter decisions by turning raw data into clear stories and
+            dependable products. I uncover what matters, build models that forecast and explain,
+            and ship solutions that work in the real world—measured by impact, not buzzwords.
+            I care about clarity, reliability, and results.
+          </p>
 
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed text-left">
-              I help teams make smarter decisions by turning raw data into clear stories and dependable
-              products. I uncover what matters, build models that forecast and explain, and ship solutions
-              that work in the real world—measured by impact, not buzzwords. I care about clarity, reliability,
-              and results.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button onClick={() => scrollToSection("projects")} className="bg-gradient-primary hover:shadow-burnt transition-all duration-300 text-lg px-8 py-3">
+          {/* Primary CTAs */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              onClick={() => scrollToSection("projects")}
+              className="h-12 rounded-2xl bg-gradient-to-r from-primary to-accent px-8 text-base font-semibold shadow-lg shadow-primary/20 transition-all hover:translate-y-0.5 hover:shadow-xl"
+            >
               View My Work
             </Button>
             <Button
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="bg-burnt-orange border-burnt-orange text-white hover:bg-burnt-orange-dark hover:border-burnt-orange-dark transition-all duration-300 text-lg px-8 py-3"
+              className="h-12 rounded-2xl border-white/30 bg-white/5 px-8 text-base text-white backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-white/10"
             >
-              Let's Talk
+              Let&apos;s Talk
             </Button>
           </div>
 
-          <div className="flex items-center justify-center space-x-6 mb-12">
+          {/* Socials */}
+          <div className="mt-8 flex items-center gap-4">
             {socials.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-gray-400 hover:text-primary transition-colors duration-300 p-2"
+                className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-gray-300 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-white/30 hover:text-white"
                 aria-label={label}
                 title={label}
               >
-                <Icon size={24} />
+                <Icon size={20} className="transition-transform group-hover:scale-110" />
               </a>
             ))}
           </div>
 
-          <button onClick={() => scrollToSection("projects")} className="animate-bounce text-gray-400 hover:text-primary transition-colors duration-300 mb-12" aria-label="Scroll down">
-            <ArrowDown size={32} />
+          {/* Scroll indicator */}
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="mt-10 inline-flex items-center gap-2 text-white/70 transition-colors hover:text-white"
+            aria-label="Scroll down"
+          >
+            <ArrowDown size={22} />
+            <span className="text-sm">Scroll</span>
           </button>
+        </div>
 
-          {/* Resume Download Section */}
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-            <h3 className="text-2xl font-bold mb-6 text-white">Download Resume</h3>
-            <p className="text-gray-300 mb-6">Get my specialized resume for different roles</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* RIGHT: Avatar + Resume card */}
+        <div className="relative z-10 mt-10 w-full lg:mt-0">
+          {/* Avatar with gradient ring */}
+          {/* Avatar with gradient ring */}
+<div className="mx-auto flex w-full max-w-md items-center justify-center">
+  <div className="relative">
+    <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary via-accent to-primary opacity-70 blur-xl" />
+    <div className="relative h-56 w-56 md:h-72 md:w-72 overflow-hidden rounded-full border-8 border-white/10 shadow-2xl">
+      <img
+        src={profilePhoto}
+        alt="Profile"
+        className="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+</div>
+
+
+          {/* Resume Download Card */}
+          <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-xl font-semibold text-white">Download Resume</h3>
+              <span className="text-xs text-white/60">PDF • Updated</span>
+            </div>
+
+            <p className="mb-5 text-sm text-white/70">
+              Choose a tailored version for the role you&apos;re applying to:
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-3">
               {resumeTypes.map(({ type, label }) => (
-                <Button
+                <button
                   key={type}
                   onClick={() => downloadResume(type)}
-                  variant="outline"
-                  className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 flex items-center gap-2"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-medium text-white/90 transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
                 >
-                  <Download size={18} />
+                  <Download size={16} className="transition-transform group-hover:scale-110" />
                   {label}
-                </Button>
+                </button>
               ))}
             </div>
           </div>

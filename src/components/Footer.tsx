@@ -5,9 +5,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const links = [
-    { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },        // update to your profile
-    { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" }, // update to your profile
-    { Icon: Mail, href: "mailto:hello@yourname.com", label: "Email" },                 // update your email
+    { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },
+    { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" },
+    { Icon: Mail, href: "mailto:janenjuguna550@gmail.com", label: "Email" }, // updated email
   ];
 
   return (
@@ -18,7 +18,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
               Portfolio
             </h3>
-            <p className="text-gray-400">Crafting digital experiences with passion</p>
+            <p className="text-gray-400">Turning data into decisions</p>
           </div>
 
           <div className="flex items-center space-x-6 mb-6 md:mb-0">
@@ -42,7 +42,7 @@ const Footer = () => {
           <p className="text-gray-400 flex items-center justify-center space-x-2">
             <span>© {currentYear} Portfolio. Made with</span>
             <Heart size={16} className="text-primary mx-1" />
-            <span>by Your Name</span>
+            <span>by Jane Njuguna</span>
           </p>
         </div>
       </div>
