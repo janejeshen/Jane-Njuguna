@@ -12,7 +12,7 @@ const Hero = () => {
   const socials = [
     { Icon: SiGithub, href: "https://github.com/janejeshen", label: "GitHub" },
     { Icon: SiLinkedin, href: "https://www.linkedin.com/in/jane-njuguna", label: "LinkedIn" },
-    { Icon: Mail, href: "mailto:hello@yourname.com", label: "Email" }, // update email
+    { Icon: Mail, href: "mailto:janenjuguna550@gmail.com", label: "Email" },
   ];
 
   return (
@@ -45,17 +45,16 @@ const Hero = () => {
               <span className="text-white">Hello, I'm</span>
               <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Your Name
+                Jane Njuguna
               </span>
             </h1>
 
             <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-light">
-              Creative Developer & Designer
+              Data Analyst • Data Scientist • Machine Learning Engineer
             </h2>
 
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              I craft beautiful digital experiences that combine functionality with stunning design.
-              Passionate about creating solutions that make a difference.
+              I help teams make smarter decisions by turning raw data into clear stories and dependable products. I uncover what matters, build models that forecast and explain, and ship solutions that work in the real world measured by impact, not buzzwords. I care about clarity, reliability, and results.
             </p>
           </div>
 
@@ -69,7 +68,7 @@ const Hero = () => {
             <Button
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="border-white text-white hover:bg-white hover:text-deep-black transition-all duration-300 text-lg px-8 py-3"
+              className="bg-burnt-orange border-burnt-orange text-white hover:bg-burnt-orange-dark hover:border-burnt-orange-dark transition-all duration-300 text-lg px-8 py-3"
             >
               Let's Talk
             </Button>
