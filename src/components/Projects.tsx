@@ -92,9 +92,7 @@ const Projects = () => {
       githubUrl: "https://github.com/janejeshen/HemaSpectra-Classifier",
       insights: [
         "Gives quick, understandable health signals without heavy lab work.",
-        "Highlights results that may need a closer look by a professional.",
-        "Shows accuracy and testing so viewers can trust the findings.",
-        "Built as a safe demo project no real patient data is included."
+        "Highlights results that may need a closer look by a professional."
       ]
     }
 ,
