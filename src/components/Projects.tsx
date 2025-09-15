@@ -22,30 +22,49 @@ const Projects = () => {
       title: "Sales Performance Dashboard (Streamlit)",
       description:
         "An interactive dashboard that helps teams monitor sales health, spot trends early, and turn insights into revenue-growing actions.",
-      image: "/lovable-uploads/sales-dashboard.png",
+      image: "/project-uploads/Sales Dashboard.png",
       technologies: ["Streamlit", "Plotly", "Pandas", "Python"],
       liveUrl:
         "https://janejeshen-sales-performance-dashboard-streamlit-app-ggstz8.streamlit.app/",
       githubUrl: "https://github.com/janejeshen/Sales-Performance-Dashboard",
       insights: [
-        "Seasonality patterns - identify peak vs. slow months to optimize promos and staffing.",
-        "Customer segmentation - map category preferences to run targeted ads and bundles.",
-        "High-value customers - rank by sales & profit to focus loyalty, care, and upsells.",
-        "Product profitability - spotlight top profit items; review low-margin products.",
-        "Basket size optimization - track average order value (AOV) trends and drive growth with bundles/upsells.",
-        "Profitability safeguards - combine sales + margin to prevent discount-driven losses.",
-        "Trend forecasting - use year over year (YoY) and 3-month moving averages for better planning.",
+        "Seasonal trends - see which months are busy and which are slow to plan promotions and staffing.",
+        "Customer groups - understand what different types of customers like so you can offer them the right deals.",
+        "Top customers - spot your best buyers so you can give them special care and loyalty rewards.",
+        "Profitable products - know which items bring in the most profit and which ones might need a rethink.",
+        "Bigger baskets - track average order sizes and encourage people to buy more with bundles or upsells.",
+        "Smart discounts - make sure sales promotions don’t cut too deeply into profits.",
+        "Future trends - use past patterns to predict what’s coming and prepare ahead.",
       ],
     },
     {
-      title: "E-Commerce Platform",
+      title: "AgroVision AI",
       description:
-        "A fast storefront that keeps inventory accurate in real time, secures checkout, and adapts beautifully across devices to lift conversion.",
-      image: "/lovable-uploads/896b37b0-fdaf-4769-b6bf-1b49da9eb498.png",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl:
-        "https://janejeshen-sales-performance-dashboard-streamlit-app-ggstz8.streamlit.app/",
-      githubUrl: "https://github.com/janejeshen/Sales-Performance-Dashboard",
+      "AgroVision AI helps farmers and communities make better use of their land. It started with a challenge in Côte d’Ivoire, a country known for cocoa, rubber, and oil palm, but it can be used across West Africa for many other crops. Normally, finding out what crops are growing requires long and costly farm visits that can still have mistakes. AgroVision AI makes this easier by using satellite images and smart computer tools to identify crops. This saves time and money, while giving more accurate results to support better planning, higher yields, and sustainable farming.",
+      insights: [
+        "Helps avoid expensive and error-prone farm visits by using satellite images and smart tools.",
+        "Makes it easier to plan land use, predict harvests, and support sustainable farming.",
+        "Can be used for many different crops and countries across West Africa."
+      ],
+      image: "/project-uploads/Agrovision AI.png",
+      technologies: [
+        "Python",
+        "Jupyter Notebook",
+        "NumPy",
+        "pandas",
+        "scikit-learn",
+        "XGBoost",
+        "LightGBM",
+        "joblib",
+        "Streamlit",
+        "GeoPandas",
+        "Rasterio",
+        "Shapely",
+        "Matplotlib",
+        "Plotly",
+        "tqdm"
+      ],
+      githubUrl: "https://github.com/janejeshen/AgroVision-AI"
     },
     {
       title: "Task Management App",

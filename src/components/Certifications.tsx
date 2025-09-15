@@ -5,7 +5,7 @@ import { Award, Calendar, ExternalLink, Trophy, Star } from "lucide-react";
 const Certifications = () => {
   const certifications = [
     {
-      title: "Data Science and Analytics Certificate",
+      title: "Data Science and Analytics",
       issuer: "Moringa School",
       date: "February 2023",
       // credentialId: "MSC-DSA-2023-001",
@@ -31,7 +31,7 @@ const Certifications = () => {
     {
       title: "Top Female participant in Côte d’Ivoire Byte-Sized Agriculture Challenge",
       issuer: "Zindi Afria",
-      date: "July 18, 2025",
+      date: "July 2025",
       description: "Awarded recognition as the Top Female Participant in the Côte d’Ivoire Byte-Sized Agriculture Challenge organized by Zindi Africa, for demonstrating exceptional data science skills, innovative problem-solving, and delivering high-quality project outcomes during the 8-month competition.",
       type: "achievement"
     }

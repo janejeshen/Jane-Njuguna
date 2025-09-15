@@ -122,31 +122,59 @@ const Hero = () => {
   );
 
   return (
-    <section
-      id="about"
-      className="relative overflow-hidden bg-gradient-hero text-white"
-    >
+    <section id="about" className="relative overflow-hidden bg-gradient-hero text-white">
       {/* Decorative blobs */}
       <div className="pointer-events-none absolute inset-0 opacity-10">
         <div className="absolute -top-16 -left-16 h-64 w-64 rounded-full bg-primary blur-3xl" />
         <div className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="container mx-auto grid min-h-[92vh] place-items-center px-4 py-20 lg:grid-cols-2 lg:gap-12">
-        {/* LEFT: Text + CTAs */}
-        <div className="relative z-10 w-full">
-          <p className="mb-3 text-sm uppercase tracking-[0.2em] text-white/70">
-            Hello, I&apos;m
-          </p>
+      {/* Mobile: stacked (image → text → resumes).  LG+: two columns (text | image+resumes). */}
+      <div className="container mx-auto min-h-[92vh] px-4 py-20 flex flex-col lg:flex-row lg:items-center lg:gap-12">
+        {/* IMAGE — first on mobile, right side on lg */}
+        <div className="relative z-10 w-full order-1 lg:order-2 lg:w-1/2">
+          <div className="mx-auto flex w-full max-w-md items-center justify-center">
+            <div className="relative">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary via-accent to-primary opacity-70 blur-xl" />
+              <div className="relative h-56 w-56 md:h-72 md:w-72 overflow-hidden rounded-full border-8 border-white/10 shadow-2xl">
+                <img src={profilePhoto} alt="Profile" className="h-full w-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          {/* Resume Card for LG+ (sits under image on the right column) */}
+          <div className="hidden lg:block mx-auto mt-6 max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-xl font-semibold text-white">Download Resume</h3>
+              <span className="text-xs text-white/60">PDF • Updated</span>
+            </div>
+            <p className="mb-5 text-sm text-white/70">
+              Choose a tailored version for the role you&apos;re applying to:
+            </p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {resumeTypes.map(({ type, label }) => (
+                <button
+                  key={type}
+                  onClick={() => downloadResume(type)}
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-medium text-white/90 transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+                >
+                  <Download size={16} className="transition-transform group-hover:scale-110" />
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* TEXT — second on mobile, left side on lg */}
+        <div className="relative z-10 w-full order-2 lg:order-1 lg:w-1/2 mt-8 lg:mt-0">
+          <p className="mb-3 text-sm uppercase tracking-[0.2em] text-white/70">Hello, I&apos;m</p>
           <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-5xl font-extrabold leading-[1.1] text-transparent md:text-6xl xl:text-7xl">
             {typedName}
             <Caret />
           </h1>
 
-          <h2
-            className="mt-4 text-2xl font-light text-white/80 md:text-3xl"
-            aria-live="polite"
-          >
+          <h2 className="mt-4 text-2xl font-light text-white/80 md:text-3xl" aria-live="polite">
             {typedRole}
             <Caret />
           </h2>
@@ -154,7 +182,7 @@ const Hero = () => {
           <p className="mt-6 max-w-2xl text-left text-lg leading-relaxed text-gray-300 md:text-xl">
             I help teams make smarter decisions by turning raw data into clear stories and
             dependable products. I uncover what matters, build models that forecast and explain,
-            and ship solutions that work in the real world measured by impact, not buzzwords.
+            and ship solutions that work in the real world—measured by impact, not buzzwords.
             I care about clarity, reliability, and results.
           </p>
 
@@ -203,35 +231,16 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* RIGHT: Avatar + Resume card */}
-        <div className="relative z-10 mt-10 w-full lg:mt-0">
-          {/* Avatar with gradient ring */}
-          {/* Avatar with gradient ring */}
-<div className="mx-auto flex w-full max-w-md items-center justify-center">
-  <div className="relative">
-    <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary via-accent to-primary opacity-70 blur-xl" />
-    <div className="relative h-56 w-56 md:h-72 md:w-72 overflow-hidden rounded-full border-8 border-white/10 shadow-2xl">
-      <img
-        src={profilePhoto}
-        alt="Profile"
-        className="h-full w-full object-cover"
-      />
-    </div>
-  </div>
-</div>
-
-
-          {/* Resume Download Card */}
-          <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+        {/* Resume Card for MOBILE ONLY — forced to the bottom */}
+        <div className="block lg:hidden w-full order-3 mt-8">
+          <div className="mx-auto max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-xl font-semibold text-white">Download Resume</h3>
               <span className="text-xs text-white/60">PDF • Updated</span>
             </div>
-
             <p className="mb-5 text-sm text-white/70">
               Choose a tailored version for the role you&apos;re applying to:
             </p>
-
             <div className="grid gap-3 sm:grid-cols-3">
               {resumeTypes.map(({ type, label }) => (
                 <button
