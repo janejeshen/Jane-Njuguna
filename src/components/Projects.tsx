@@ -19,24 +19,26 @@ const BURNT = "#CC5500"; // burnt orange
 const Projects = () => {
   const projects: Project[] = [
     {
-      title: "Sales Performance Dashboard",
-      description:
-        "An interactive dashboard that helps teams monitor sales health, spot trends early, and turn insights into revenue-growing actions.",
-      image: "/project-uploads/Sales Dashboard.png",
-      technologies: ["Streamlit", "Plotly", "Pandas", "Python","PowerBi"],
-      liveUrl:
-        "https://janejeshen-sales-performance-dashboard-streamlit-app-ggstz8.streamlit.app/",
-      githubUrl: "https://github.com/janejeshen/Sales-Performance-Dashboard",
-      insights: [
-        "Seasonal trends - see which months are busy and which are slow to plan promotions and staffing.",
-        "Customer groups - understand what different types of customers like so you can offer them the right deals.",
-        "Top customers - spot your best buyers so you can give them special care and loyalty rewards.",
-        "Profitable products - know which items bring in the most profit and which ones might need a rethink.",
-        "Bigger baskets - track average order sizes and encourage people to buy more with bundles or upsells.",
-        "Smart discounts - make sure sales promotions don’t cut too deeply into profits.",
-        "Future trends - use past patterns to predict what’s coming and prepare ahead.",
-      ],
-    },
+    title: "Sales Performance Dashboard",
+    description:
+      "An interactive dashboard that helps teams monitor sales health, spot trends early, and turn insights into revenue-growing actions.",
+    image:
+      "https://res.cloudinary.com/dx2qp6k0j/image/upload/f_auto,q_auto,w_1200/v1757962795/Sales_Dashboard_vfmupg.png",
+    technologies: ["Streamlit", "Plotly", "Pandas", "Python","PowerBi"],
+    liveUrl:
+      "https://janejeshen-sales-performance-dashboard-streamlit-app-ggstz8.streamlit.app/",
+    githubUrl: "https://github.com/janejeshen/Sales-Performance-Dashboard",
+    insights: [
+      "Seasonal trends - see which months are busy and which are slow to plan promotions and staffing.",
+      "Customer groups - understand what different types of customers like so you can offer them the right deals.",
+      "Top customers - spot your best buyers so you can give them special care and loyalty rewards.",
+      "Profitable products - know which items bring in the most profit and which ones might need a rethink.",
+      "Bigger baskets - track average order sizes and encourage people to buy more with bundles or upsells.",
+      "Smart discounts - make sure sales promotions don’t cut too deeply into profits.",
+      "Future trends - use past patterns to predict what’s coming and prepare ahead.",
+    ],
+}
+,
     {
       title: "AgroVision AI",
       description:
