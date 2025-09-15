@@ -37,7 +37,7 @@ const Projects = () => {
       "Smart discounts - make sure sales promotions don’t cut too deeply into profits.",
       "Future trends - use past patterns to predict what’s coming and prepare ahead.",
     ],
-}
+    }
 ,
     {
       title: "AgroVision AI",
@@ -48,7 +48,7 @@ const Projects = () => {
         "Makes it easier to plan land use, predict harvests, and support sustainable farming.",
         "Can be used for many different crops and countries across West Africa.",
       ],
-      image: "/project-uploads/Agrovision AI.png",
+      image: "https://res.cloudinary.com/dx2qp6k0j/image/upload/v1757962612/Agrovision_AI_fdfqkr.png",
       technologies: [
         "Python",
         "Jupyter Notebook",
@@ -72,7 +72,7 @@ const Projects = () => {
       title: "lodgenius – Hotel & Airbnb Recommendation System",
       description:
         "An intelligent recommendation engine that leverages machine learning and data analytics to suggest the best hotels and Airbnbs tailored to user preferences and behavior. Features data preprocessing, model training, and evaluation to improve lodging choices.",
-      image: "/project-uploads/LodGenius.png",
+      image: "https://res.cloudinary.com/dx2qp6k0j/image/upload/v1757962647/LodGenius_vznrbm.png",
       technologies: [
         "Python", "Pandas", "NumPy", "Scikit-learn", "SciPy",
         "NLTK", "spaCy", "Gensim", "Matplotlib", "Seaborn",
@@ -89,7 +89,7 @@ const Projects = () => {
       title: "HemaSpectra – Blood Health Classifier",
       description:
         "A simple AI tool that looks at how light passes through a tiny blood sample and predicts three common health markers: HDL (the “good” cholesterol), hemoglobin, and LDL (the “bad” cholesterol). It turns complex readings into clear, easy-to-read results and shows how accurate the predictions are.",
-      image: "/project-uploads/HemaSpectra.png",
+      image: "https://res.cloudinary.com/dx2qp6k0j/image/upload/v1757962621/HemaSpectra_j2f26q.png",
       technologies: ["Python", "Jupyter Notebook", "scikit-learn (machine learning)", "Pandas", "NumPy", "Matplotlib"],
       githubUrl: "https://github.com/janejeshen/HemaSpectra-Classifier",
       insights: [
