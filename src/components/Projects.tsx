@@ -23,7 +23,7 @@ const Projects = () => {
       description:
         "An interactive dashboard that helps teams monitor sales health, spot trends early, and turn insights into revenue-growing actions.",
       image: "/project-uploads/Sales Dashboard.png",
-      technologies: ["Streamlit", "Plotly", "Pandas", "Python"],
+      technologies: ["Streamlit", "Plotly", "Pandas", "Python","PowerBi"],
       liveUrl:
         "https://janejeshen-sales-performance-dashboard-streamlit-app-ggstz8.streamlit.app/",
       githubUrl: "https://github.com/janejeshen/Sales-Performance-Dashboard",
@@ -40,11 +40,11 @@ const Projects = () => {
     {
       title: "AgroVision AI",
       description:
-      "AgroVision AI helps farmers and communities make better use of their land. It started with a challenge in Côte d’Ivoire, a country known for cocoa, rubber, and oil palm, but it can be used across West Africa for many other crops. Normally, finding out what crops are growing requires long and costly farm visits that can still have mistakes. AgroVision AI makes this easier by using satellite images and smart computer tools to identify crops. This saves time and money, while giving more accurate results to support better planning, higher yields, and sustainable farming.",
+        "AgroVision AI helps farmers and communities make better use of their land. It started with a challenge in Côte d’Ivoire, a country known for cocoa, rubber, and oil palm, but it can be used across West Africa for many other crops. Normally, finding out what crops are growing requires long and costly farm visits that can still have mistakes. AgroVision AI makes this easier by using satellite images and smart computer tools to identify crops. This saves time and money, while giving more accurate results to support better planning, higher yields, and sustainable farming.",
       insights: [
         "Helps avoid expensive and error-prone farm visits by using satellite images and smart tools.",
         "Makes it easier to plan land use, predict harvests, and support sustainable farming.",
-        "Can be used for many different crops and countries across West Africa."
+        "Can be used for many different crops and countries across West Africa.",
       ],
       image: "/project-uploads/Agrovision AI.png",
       technologies: [
@@ -62,28 +62,28 @@ const Projects = () => {
         "Shapely",
         "Matplotlib",
         "Plotly",
-        "tqdm"
+        "tqdm",
       ],
-      githubUrl: "https://github.com/janejeshen/AgroVision-AI"
+      githubUrl: "https://github.com/janejeshen/AgroVision-AI",
     },
     {
-      title: "Task Management App",
+      title: "lodgenius – Hotel & Airbnb Recommendation System",
       description:
-        "Collaborative task boards with real-time updates, drag-and-drop, and team spaces for smoother project delivery.",
-      image: "/lovable-uploads/896b37b0-fdaf-4769-b6bf-1b49da9eb498.png",
-      technologies: ["Vue.js", "Firebase", "Tailwind CSS", "Socket.io"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Data Visualization Dashboard",
-      description:
-        "A crisp analytics hub for exploring data, tracking KPIs, and exporting views for business decisions.",
-      image: "/lovable-uploads/896b37b0-fdaf-4769-b6bf-1b49da9eb498.png",
-      technologies: ["D3.js", "Python", "FastAPI", "PostgreSQL"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+        "An intelligent recommendation engine that leverages machine learning and data analytics to suggest the best hotels and Airbnbs tailored to user preferences and behavior. Features data preprocessing, model training, and evaluation to improve lodging choices.",
+      image: "/project-uploads/LodGenius.png",
+      technologies: [
+        "Python", "Pandas", "NumPy", "Scikit-learn", "SciPy",
+        "NLTK", "spaCy", "Gensim", "Matplotlib", "Seaborn",
+        "WordCloud", "langdetect", "IPython/Jupyter"
+      ]
+,
+      githubUrl: "https://github.com/janejeshen/lodgenius-Hotel-Airbnb-Recommendation-System",
+      insights: [
+        "Delivers personalized lodging suggestions based on price, location, and reviews.",
+        "Uncovers travel patterns and predicts user preferences using machine learning.",
+      ]
+    }
+,
     {
       title: "Mobile Weather App",
       description:
@@ -129,14 +129,14 @@ const Projects = () => {
                 key={index}
                 className="group overflow-hidden hover:shadow-elegant transition-all duration-500 hover:-translate-y-2"
               >
-                {/* Image + hover buttons */}
+                {/* Image + persistent bottom toolbar */}
                 <div className="relative overflow-hidden">
-                  {hasLive ? (
+                  {project.liveUrl ? (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Open ${project.title} live site`}
+                      aria-label={`Open ${project.title} live site (click image)`}
                     >
                       {ImageEl}
                     </a>
@@ -144,66 +144,71 @@ const Projects = () => {
                     ImageEl
                   )}
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="flex space-x-2">
-                        {hasLive ? (
-                          <Button
-                            asChild
-                            size="sm"
-                            className="bg-black border-black hover:bg-black/90"
-                            style={{ color: BURNT }}
-                            title="Open live site"
-                          >
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Open ${project.title} live site`}
+                  {/* Persistent action bar (always visible) */}
+                  <div className="absolute inset-x-0 bottom-0">
+                    <div className="bg-gradient-to-t from-black/85 via-black/50 to-transparent">
+                      <div className="flex items-center justify-between px-4 pb-3 pt-4">
+                        <div className="flex space-x-2">
+                          {hasLive ? (
+                            <Button
+                              asChild
+                              size="sm"
+                              className="bg-black border-black hover:bg-black/90"
+                              style={{ color: BURNT }}
+                              title="Open live site"
+                            >
+                              <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Open ${project.title} live site`}
+                              >
+                                <ExternalLink size={16} />
+                                <span className="ml-2">Live</span>
+                              </a>
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              disabled
+                              className="bg-black text-white/60 border-black"
+                              title="Live link coming soon"
                             >
                               <ExternalLink size={16} />
-                              <span className="sr-only">Live</span>
-                            </a>
-                          </Button>
-                        ) : (
-                          <Button
-                            size="sm"
-                            disabled
-                            className="bg-black text-white/60 border-black"
-                            title="Live link coming soon"
-                          >
-                            <ExternalLink size={16} />
-                          </Button>
-                        )}
+                              <span className="ml-2">Live</span>
+                            </Button>
+                          )}
 
-                        {hasGit ? (
-                          <Button
-                            asChild
-                            size="sm"
-                            className="bg-black border-black hover:bg-black/90"
-                            style={{ color: BURNT }}
-                            title="Open GitHub repo"
-                          >
-                            <a
-                              href={project.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Open ${project.title} GitHub repo`}
+                          {hasGit ? (
+                            <Button
+                              asChild
+                              size="sm"
+                              className="bg-black border-black hover:bg-black/90"
+                              style={{ color: BURNT }}
+                              title="Open GitHub repo"
+                            >
+                              <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Open ${project.title} GitHub repo`}
+                              >
+                                <Github size={16} />
+                                <span className="ml-2">GitHub</span>
+                              </a>
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              disabled
+                              className="bg-black text-white/60 border-black"
+                              title="GitHub link coming soon"
                             >
                               <Github size={16} />
-                              <span className="sr-only">GitHub</span>
-                            </a>
-                          </Button>
-                        ) : (
-                          <Button
-                            size="sm"
-                            disabled
-                            className="bg-black text-white/60 border-black"
-                            title="GitHub link coming soon"
-                          >
-                            <Github size={16} />
-                          </Button>
-                        )}
+                              <span className="ml-2">GitHub</span>
+                            </Button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -218,7 +223,7 @@ const Projects = () => {
                     {project.title}
                   </h3>
 
-                  {/* Scrollable description + insights (no bottom buttons) */}
+                  {/* Scrollable description + insights */}
                   <div className="space-y-3 max-h-44 md:max-h-56 overflow-y-auto pr-2">
                     <p className="text-muted-foreground whitespace-pre-line">
                       {project.description}
