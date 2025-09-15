@@ -75,8 +75,7 @@ const Projects = () => {
         "Python", "Pandas", "NumPy", "Scikit-learn", "SciPy",
         "NLTK", "spaCy", "Gensim", "Matplotlib", "Seaborn",
         "WordCloud", "langdetect", "IPython/Jupyter"
-      ]
-,
+      ],
       githubUrl: "https://github.com/janejeshen/lodgenius-Hotel-Airbnb-Recommendation-System",
       insights: [
         "Delivers personalized lodging suggestions based on price, location, and reviews.",
@@ -85,14 +84,20 @@ const Projects = () => {
     }
 ,
     {
-      title: "Mobile Weather App",
+      title: "HemaSpectra – Blood Health Classifier",
       description:
-        "Location-aware forecasts with alerts and a polished, animated mobile experience.",
-      image: "/lovable-uploads/896b37b0-fdaf-4769-b6bf-1b49da9eb498.png",
-      technologies: ["React Native", "OpenWeather API", "Redux", "Expo"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+        "A simple AI tool that looks at how light passes through a tiny blood sample and predicts three common health markers: HDL (the “good” cholesterol), hemoglobin, and LDL (the “bad” cholesterol). It turns complex readings into clear, easy-to-read results and shows how accurate the predictions are.",
+      image: "/project-uploads/HemaSpectra.png",
+      technologies: ["Python", "Jupyter Notebook", "scikit-learn (machine learning)", "Pandas", "NumPy", "Matplotlib"],
+      githubUrl: "https://github.com/janejeshen/Blood-Spectroscopy-Classification",
+      insights: [
+        "Gives quick, understandable health signals without heavy lab work.",
+        "Highlights results that may need a closer look by a professional.",
+        "Shows accuracy and testing so viewers can trust the findings.",
+        "Built as a safe demo project—no real patient data is included."
+      ]
+    }
+,
   ];
 
   return (
