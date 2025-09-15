@@ -19,7 +19,7 @@ const BURNT = "#CC5500"; // burnt orange
 const Projects = () => {
   const projects: Project[] = [
     {
-      title: "Sales Performance Dashboard (Streamlit)",
+      title: "Sales Performance Dashboard",
       description:
         "An interactive dashboard that helps teams monitor sales health, spot trends early, and turn insights into revenue-growing actions.",
       image: "/project-uploads/Sales Dashboard.png",
