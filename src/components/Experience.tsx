@@ -7,12 +7,13 @@ const Experience = () => {
   title: "Data Analyst Intern",
   company: "Kurasa Africa",
   period: "June 2025 – Present",
-  description: `• Clean and validate assessment datasets across schools—deduping, fixing missing/inconsistent values, and standardizing schemas to improve data quality.\n
-• Write SQL/Python pipelines to aggregate student, class, and school-level metrics (scores, growth, attendance) for weekly and monthly reporting.\n
-• Build interactive dashboards to visualize performance trends, cohorts, and risk flags, enabling data-driven decisions for academic and operations teams.\n
-• Perform exploratory analysis to surface drivers of performance and translate findings into clear recommendations for stakeholders.\n
-• Document data sources, data dictionaries, naming conventions, and analysis workflows to improve team collaboration and onboarding.\n
-• Automate recurring reports and checks, reducing manual effort and turnaround time.`,
+  description: `• Clean and prepare school assessment data by removing duplicates, fixing missing or wrong values, and making the format consistent so the data is reliable.\n
+  • Use SQL/Python to combine student, class, and school results (like scores, growth, and attendance) into weekly and monthly reports.\n
+  • Create easy-to-use dashboards that show performance trends, student groups, and risk alerts to help academic and operations teams make better decisions.\n
+  • Explore the data to find reasons behind performance and turn those insights into clear recommendations for school leaders.\n
+  • Keep records of data sources, definitions, and workflows so the team can work together smoothly and new members can onboard faster.
+  • Automate regular reports and data checks to save time and reduce manual work.
+`,
   technologies: [
     "Python (Pandas, NumPy, Jupyter)",
     "SQL (PostgreSQL)",
@@ -29,13 +30,13 @@ const Experience = () => {
   title: "Data Analyst Intern",
   company: "Kiondo Market",
   period: "July 2023 – December 2023",
-  description: `• Analyzed sales, margin, and profitability for the Fresh Foods category; surfaced trends by SKU, store, and vendor to guide weekly decisions.
-• Built KPI dashboards (revenue, units, AOV, gross margin, sell-through, wastage) that gave merchandisers and ops a single source of truth.
-• Conducted grouped product performance analysis to identify under/over-performers and recommended price, promo, and assortment actions.
-• Evaluated promotion effectiveness and price elasticity to optimize discount depth and frequency without eroding margins.
-• Performed basket analysis and simple cohort/segmentation to uncover cross-sell opportunities and high-value customer behaviors.
-• Partnered with supply/ops to reduce stockouts and shrink by monitoring days-of-cover, reorder points, and wastage drivers.
-• Cleaned and standardized raw POS/inventory data (deduping, schema alignment, missing-value handling) to improve data reliability.`,
+  description: `• Looked at sales, profits, and costs for Fresh Foods. Shared weekly trends by product, and supplier to guide decisions.\n
+    • Built easy-to-use dashboards showing key numbers like revenue, units sold, average order value, margins, and wastage so teams could track everything in one place.\n
+    • Reviewed product groups to see which items sold well or poorly, and suggested changes in pricing, promotions, and product mix.\n
+    • Checked how discounts worked to find the right balance boosting sales without hurting profits.\n
+    • Studied shopping baskets and customer groups to spot cross-sell chances and highlight the most valuable customers.\n
+    • Worked with supply and operations teams to cut stockouts and reduce waste by tracking stock levels and re-order points.\n
+    • Cleaned and organized sales and inventory data so reports were accurate and reliable.`,
   technologies: [
     "Python (Pandas, NumPy, Jupyter)",
     "MySQL",
@@ -51,12 +52,13 @@ const Experience = () => {
   title: "Online Marketer",
   company: "Freelancer (Upwork)",
   period: "December 2021 – May 2022",
-  description: `• Planned and executed data-driven marketing campaigns for e-commerce and NFT launches, aligning copy, creatives, and funnels to target audiences.
-• Grew and moderated Discord communities—set up channels/roles/bots, hosted AMAs and giveaways, and nurtured leads via compliant DM and community engagement.
-• Promoted NFT drops across Discord, X (Twitter), and Telegram; coordinated creator/influencer collaborations and cross-promotions to boost reach and credibility.
-• Built simple acquisition funnels with UTM tracking; ran A/B tests on headlines, CTAs, and landing pages to improve CTR and conversion rates.
-• Produced weekly performance reports (reach, engagement, conversion, sales) and translated insights into clear, actionable recommendations.
-• Created content calendars and wrote campaign assets (threads, announcements, emails, landing page copy) while maintaining brand voice and community guidelines.`,
+  description: `• Planned and ran marketing campaigns for online shops and NFT launches, making sure messages, designs, and funnels matched the right audience.\n
+• Grew and managed Discord communities by setting up channels, roles, and bots, hosting Q&A sessions and giveaways, and engaging with members through messages and events.\n
+• Promoted NFT launches on Discord, Twitter (X), and Telegram, and worked with creators and influencers to increase visibility and trust.\n
+• Built simple funnels to track where new users came from, and tested different headlines, buttons, and landing pages to improve clicks and conversions.\n
+• Made weekly reports on results (like reach, engagement, sales) and shared clear recommendations on what to do next.\n
+• Planned content calendars and wrote posts, announcements, emails, and landing page copy, keeping the brand voice and community rules consistent.
+`,
   technologies: [
     "Discord ",
     "X & Telegram",
