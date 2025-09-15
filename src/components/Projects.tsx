@@ -89,12 +89,12 @@ const Projects = () => {
         "A simple AI tool that looks at how light passes through a tiny blood sample and predicts three common health markers: HDL (the “good” cholesterol), hemoglobin, and LDL (the “bad” cholesterol). It turns complex readings into clear, easy-to-read results and shows how accurate the predictions are.",
       image: "/project-uploads/HemaSpectra.png",
       technologies: ["Python", "Jupyter Notebook", "scikit-learn (machine learning)", "Pandas", "NumPy", "Matplotlib"],
-      githubUrl: "https://github.com/janejeshen/Blood-Spectroscopy-Classification",
+      githubUrl: "https://github.com/janejeshen/HemaSpectra-Classifier",
       insights: [
         "Gives quick, understandable health signals without heavy lab work.",
         "Highlights results that may need a closer look by a professional.",
         "Shows accuracy and testing so viewers can trust the findings.",
-        "Built as a safe demo project—no real patient data is included."
+        "Built as a safe demo project no real patient data is included."
       ]
     }
 ,
