@@ -14,7 +14,6 @@ type Project = {
 };
 
 const isRealLink = (url?: string) => !!url && url !== "#";
-const BURNT = "#CC5500"; // burnt orange
 
 const Projects = () => {
   const projects: Project[] = [
@@ -158,8 +157,7 @@ const Projects = () => {
                             <Button
                               asChild
                               size="sm"
-                              className="bg-black border-black hover:bg-black/90"
-                              style={{ color: BURNT }}
+                              className="bg-black border-black text-teal hover:bg-black/90"
                               title="Open live site"
                             >
                               <a
@@ -188,8 +186,7 @@ const Projects = () => {
                             <Button
                               asChild
                               size="sm"
-                              className="bg-black border-black hover:bg-black/90"
-                              style={{ color: BURNT }}
+                              className="bg-black border-black text-teal hover:bg-black/90"
                               title="Open GitHub repo"
                             >
                               <a
@@ -221,10 +218,7 @@ const Projects = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3
-                    className="text-xl font-bold mb-3 transition-colors duration-300"
-                    style={{ color: BURNT }}
-                  >
+                  <h3 className="text-xl font-bold mb-3 text-teal transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -236,7 +230,7 @@ const Projects = () => {
 
                     {project.insights && project.insights.length > 0 && (
                       <div>
-                        <p className="font-semibold" style={{ color: BURNT }}>
+                        <p className="font-semibold text-teal">
                           Insights
                         </p>
                         <ul className="list-disc pl-5 text-sm text-muted-foreground">
@@ -254,12 +248,7 @@ const Projects = () => {
                       <Badge
                         key={tech}
                         variant="secondary"
-                        className="transition-colors duration-300"
-                        style={{
-                          backgroundColor: "black",
-                          color: BURNT,
-                          borderColor: "black",
-                        }}
+                        className="bg-deep-black text-teal border-deep-black transition-colors duration-300"
                       >
                         {tech}
                       </Badge>

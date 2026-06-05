@@ -58,10 +58,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Portfolio theme colors
-        "burnt-orange": {
-          DEFAULT: "hsl(var(--burnt-orange))",
-          dark: "hsl(var(--burnt-orange-dark))",
-          light: "hsl(var(--burnt-orange-light))",
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          dark: "hsl(var(--teal-dark))",
+          light: "hsl(var(--teal-light))",
         },
         "deep-black": "hsl(var(--deep-black))",
         charcoal: "hsl(var(--charcoal))",
@@ -73,7 +73,7 @@ export default {
         "gradient-hero": "var(--gradient-hero)",
       },
       boxShadow: {
-        burnt: "var(--shadow-burnt)",
+        teal: "var(--shadow-teal)",
         elegant: "var(--shadow-elegant)",
         card: "var(--shadow-card)",
       },

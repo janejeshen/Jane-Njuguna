@@ -54,7 +54,7 @@ const Navigation = () => {
 
           <Button 
             onClick={() => scrollToSection("contact")}
-            className="bg-gradient-primary hover:shadow-burnt transition-all duration-300"
+            className="bg-gradient-primary hover:shadow-teal transition-all duration-300"
           >
             Get In Touch
           </Button>

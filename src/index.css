@@ -17,42 +17,42 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    --primary: 25 75% 50%;
+    --primary: 174 62% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 93%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 180 15% 96%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 25 85% 45%;
+    --accent: 174 72% 32%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 25 75% 50%;
+    --border: 180 10% 90%;
+    --input: 180 10% 90%;
+    --ring: 174 62% 40%;
 
     --radius: 0.75rem;
 
-    /* Portfolio specific colors */
-    --burnt-orange: 25 75% 50%;
-    --burnt-orange-dark: 25 75% 40%;
-    --burnt-orange-light: 25 75% 60%;
-    --deep-black: 0 0% 8%;
-    --charcoal: 0 0% 15%;
-    --warm-gray: 0 0% 93%;
+    /* Portfolio: white, teal, black */
+    --teal: 174 62% 40%;
+    --teal-dark: 174 72% 32%;
+    --teal-light: 174 55% 52%;
+    --deep-black: 0 0% 5%;
+    --charcoal: 174 15% 12%;
+    --warm-gray: 180 20% 97%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--burnt-orange)), hsl(var(--burnt-orange-dark)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--teal-light)), hsl(var(--teal)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--warm-gray)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--deep-black)), hsl(var(--charcoal)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--deep-black)), hsl(var(--charcoal)) 55%, hsl(174 25% 10%));
 
     /* Shadows */
-    --shadow-burnt: 0 10px 40px -10px hsl(var(--burnt-orange) / 0.3);
+    --shadow-teal: 0 10px 40px -10px hsl(var(--teal) / 0.35);
     --shadow-elegant: 0 20px 60px -20px hsl(var(--deep-black) / 0.2);
     --shadow-card: 0 4px 20px -4px hsl(var(--deep-black) / 0.1);
 
