@@ -76,6 +76,7 @@ export default {
         teal: "var(--shadow-teal)",
         elegant: "var(--shadow-elegant)",
         card: "var(--shadow-card)",
+        soft: "var(--shadow-soft)",
       },
       transitionTimingFunction: {
         smooth: "var(--transition-smooth)",
