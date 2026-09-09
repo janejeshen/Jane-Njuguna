@@ -5,7 +5,8 @@ import GlassPanel from "@/components/portfolio/GlassPanel";
 import { contact, socials } from "@/data/portfolio";
 import { staggerContainer, staggerItem, viewportOnce } from "@/lib/animations";
 
-const CONTACT_FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined;
+const CONTACT_FORM_ENDPOINT =
+  (import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined) ?? "https://formspree.io/f/maeylgaj";
 
 const emailRow = contact.items.find((item) => item.title === "Email");
 const emailHref = emailRow?.href ?? "mailto:janenjuguna550@gmail.com";
