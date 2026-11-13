@@ -372,36 +372,6 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    company: "Go Chapa",
-    role: "Data Analyst",
-    employmentType: "Professional Experience",
-    period: "Jan 2024 — Jan 2026",
-    summary:
-      "Analyzed business and operational data to support reporting, uncover insights and help translate data into practical decisions.",
-    contributions: [
-      {
-        category: "Data Analysis",
-        description: "Analyzed business and operational data to identify trends, patterns and areas requiring attention.",
-        icon: BarChart3,
-      },
-      {
-        category: "Data Preparation",
-        description: "Cleaned, organized and prepared data for analysis and reporting.",
-        icon: Database,
-      },
-      {
-        category: "Reporting & Insights",
-        description: "Prepared analytical reports and presented findings in a clear format for business understanding.",
-        icon: FileBarChart,
-      },
-      {
-        category: "Decision Support",
-        description: "Translated data findings into practical insights that supported data-driven business decisions.",
-        icon: Lightbulb,
-      },
-    ],
-  },
-  {
     company: "Kiondo Market",
     role: "Data Analyst / BI Analyst",
     employmentType: "Professional Experience",
